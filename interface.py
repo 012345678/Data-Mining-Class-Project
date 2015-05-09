@@ -56,7 +56,7 @@ def displayName(username, window):
 def showDataWarning(window):
     warning = Tkinter.Label(window,
                             text = "*User may not have enough tweets for an accurate profile",
-                            font =("arail", 18),
+                            font =("arial", 18),
                             bg = "#1a4d84",
                             fg = 'white')
     warning.place(x = 60, y = 60)
@@ -64,7 +64,7 @@ def showDataWarning(window):
 def displaySentScore(window, score):
     warning = Tkinter.Label(window,
                             text = score,
-                            font =("arail", 22),
+                            font =("arial", 22),
                             bg = "#1a4d84",
                             fg = 'white')
     warning.place(x = 60, y = 80)
