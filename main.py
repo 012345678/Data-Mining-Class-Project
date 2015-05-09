@@ -17,12 +17,12 @@ import basicInfo
 imp.reload(sys)
 sys.setdefaultencoding("utf-8")
 
-
+keySet = 431
 #Private keys
-consumer_key = authKeys.getA()
-consumer_secret = authKeys.getB()
-access_token_key = authKeys.getC()
-access_token_secret = authKeys.getD()
+consumer_key = authKeys.getA(keySet)
+consumer_secret = authKeys.getB(keySet)
+access_token_key = authKeys.getC(keySet)
+access_token_secret = authKeys.getD(keySet)
 
 # OAuth process, using the keys and tokens
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -47,7 +47,10 @@ def getUserData(username, window):
             tweets.append(status.text)
             count += 1
 
-    basicInfo.showBasicInfo(username)
+    with file('tweetDump.txt', 'w') as filePtr:
+	    filePtr.write( json.dumps(tweets) )
+
+    basicInfo.showBasicInfo(username, keySet)
     #sent.getSentiment(tweets, window)
 
 
